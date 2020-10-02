@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using DAS.Web.Models;
 using DAS.Application.Interfaces;
 using DAS.Application.Models.ViewModels;
+using DAS.Domain.Models.DAS;
 
 namespace DAS.Web.Controllers
 {
@@ -33,7 +34,7 @@ namespace DAS.Web.Controllers
                 Description = s.Description
             });
 
-            return PartialView(users);
+            return PartialView(model);
         }
 
         // GET: Users/Details/5
@@ -55,39 +56,38 @@ namespace DAS.Web.Controllers
             return PartialView();
         }
 
-        // POST: Users/Create
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([Bind("ID,Name,Email,Description")] VMCreateUser vmUser)
-        //{
-        //    if (vmUser != null && !string.IsNullOrEmpty(vmUser.Email) && await _userService.IsEmailExist(vmUser.Email))
-        //    {
-        //        ModelState.AddModelError("", "Email đã tồn tại");
-        //    }
+        //POST: Users/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("ID,Name,Email,Description")] VMCreateUser vmUser)
+        {
+            if (vmUser != null && !string.IsNullOrEmpty(vmUser.Email) && await _userService.IsEmailExist(vmUser.Email))
+            {
+                ModelState.AddModelError("", "Email đã tồn tại");
+            }
 
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return JSErrorModelState();
-        //    }
-        //    var now = DateTime.Now;
-        //    //var user = new User
-        //    //{
-        //    //    Name = vmUser.Name,
-        //    //    Description = vmUser.Description,
-        //    //    Email = vmUser.Email,
-        //    //    CreateDate = now,
-        //    //    CreatedBy = GetCurrUser(),
-        //    //    UpdatedBy = null,
-        //    //    UpdatedDate = null
-        //    //};
+            if (!ModelState.IsValid)
+            {
+                return JSErrorModelState();
+            }
+            var now = DateTime.Now;
+            var user = new User
+            {
+                Name = vmUser.Name,
+                Description = vmUser.Description,
+                Email = vmUser.Email,
+                CreateDate = now,
+                CreatedBy = GetCurrUser(),
+                UpdatedBy = null,
+                UpdatedDate = null
+            };
 
-        //    var user = _mapper.Map<User>(vmUser);
-        //    user.CreateDate = now;
-        //    user.CreatedBy = GetCurrUser();
-        //    var rs = await _userService.Create(user);
-
-        //    return CustJSonResult(rs);
-        //}
+            //var user = _mapper.Map<User>(vmUser);
+            //user.CreateDate = now;
+            //user.CreatedBy = GetCurrUser();
+            var rs = await _userService.Create(user);
+            return CustJSonResult(rs);
+        }
 
         //// GET: Users/Edit/5
         //public async Task<IActionResult> Edit(long? id)

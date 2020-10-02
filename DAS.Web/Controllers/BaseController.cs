@@ -58,7 +58,7 @@ namespace DAS.Web.Controllers
         {
             return new JsonResult(new
             {
-                Type = CommonConst.Error,
+                Type = CommonConst.Warning,
                 Message = msg
             });
         }
