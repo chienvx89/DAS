@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace DAS.Domain.Models
+namespace DAS.Domain.Models.DAS
 {
     public class User
     {

@@ -2,7 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DAS.Application.Interfaces;
+using DAS.Application.Services;
+using DAS.Domain.Interfaces.DAS;
 using DAS.Infrastructure.Contexts;
+using DAS.Infrastructure.Repositories;
 using DAS.Utility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,9 +30,10 @@ namespace DAS.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<DASContext>(o => o.UseSqlServer(ConfigSettingUtils.GetConnectionString("TaskManagerContext")));
             services.AddDbContext<DASContext>(o => o.UseSqlServer(ConfigUtils.GetConnectionString("DASContext")));
             services.AddControllersWithViews();
+            services.AddScoped<IDasRepositoryWrapper, RepositoryWrapper>();
+            services.AddScoped<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAS.Web", "DAS.Web\DAS.Web.csproj", "{2D00904A-4E10-4FDD-B760-7A2A89823E79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAS.Web", "DAS.Web\DAS.Web.csproj", "{2D00904A-4E10-4FDD-B760-7A2A89823E79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAS.Core", "DAS.Core\DAS.Core.csproj", "{8CC85C2C-AB53-47B8-8332-768E95A2EB9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAS.Infrastructure", "DAS.Infrastructure\DAS.Infrastructure.csproj", "{721FA7BB-9919-45AE-9B48-DD2ADFBC9E26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAS.Infrastructure", "DAS.Infrastructure\DAS.Infrastructure.csproj", "{721FA7BB-9919-45AE-9B48-DD2ADFBC9E26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAS.Domain", "DAS.Domain\DAS.Domain.csproj", "{636D86A0-CFB9-45FD-A8EC-39143B828EAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAS.Domain", "DAS.Domain\DAS.Domain.csproj", "{636D86A0-CFB9-45FD-A8EC-39143B828EAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAS.Utility", "DAS.Utility\DAS.Utility.csproj", "{341784E3-BE70-4B00-AEBC-4F4F119E23CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAS.Utility", "DAS.Utility\DAS.Utility.csproj", "{341784E3-BE70-4B00-AEBC-4F4F119E23CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAS.Application", "DAS.Application\DAS.Application.csproj", "{0989BD4C-44BB-42A3-A9DA-229367E58D32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{2D00904A-4E10-4FDD-B760-7A2A89823E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D00904A-4E10-4FDD-B760-7A2A89823E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D00904A-4E10-4FDD-B760-7A2A89823E79}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8CC85C2C-AB53-47B8-8332-768E95A2EB9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8CC85C2C-AB53-47B8-8332-768E95A2EB9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8CC85C2C-AB53-47B8-8332-768E95A2EB9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8CC85C2C-AB53-47B8-8332-768E95A2EB9C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{721FA7BB-9919-45AE-9B48-DD2ADFBC9E26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{721FA7BB-9919-45AE-9B48-DD2ADFBC9E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{721FA7BB-9919-45AE-9B48-DD2ADFBC9E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{341784E3-BE70-4B00-AEBC-4F4F119E23CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{341784E3-BE70-4B00-AEBC-4F4F119E23CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{341784E3-BE70-4B00-AEBC-4F4F119E23CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0989BD4C-44BB-42A3-A9DA-229367E58D32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0989BD4C-44BB-42A3-A9DA-229367E58D32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0989BD4C-44BB-42A3-A9DA-229367E58D32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0989BD4C-44BB-42A3-A9DA-229367E58D32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
