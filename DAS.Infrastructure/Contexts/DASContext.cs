@@ -1,23 +1,31 @@
-﻿using DAS.Infrastructure.Data.DAS.Models;
+﻿using DAS.Domain.Models;
+using DAS.Infrastructure;
 using DAS.Utility;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Microsoft.Extensions.Logging;
 
-namespace DAS.Infrastructure.Data.DAS.Context
+namespace DAS.Infrastructure.Contexts
 {
-    public class DASContext: DbContext
+    public class DASContext : DbContext
     {
+        public static readonly ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+                {
+                    builder
+                           .AddFilter(DbLoggerCategory.Database.Command.Name, LogLevel.Warning)
+                           .AddFilter(DbLoggerCategory.Query.Name, LogLevel.Debug)
+                           .AddConsole();
+                }
+        );
+
         public DASContext(DbContextOptions<DASContext> options) : base(options)
         {
-
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseLoggerFactory(loggerFactory).UseSqlServer(ConfigUtils.GetConnectionString("DASContext"));
             //optionsBuilder.UseSqlServer(ConfigUtils.GetConnectionString("DASContext"));
-            //optionsBuilder.UseSqlServer("Server=ADMIN\\MSSQLSERVER2019;Database=QLCV01; User Id = sa;password=12345678;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

@@ -12,9 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DAS.Core\DAS.Core.csproj" />
     <ProjectReference Include="..\DAS.Infrastructure\DAS.Infrastructure.csproj" />
     <ProjectReference Include="..\DAS.Utility\DAS.Utility.csproj" />
   </ItemGroup>
-
 </Project>
