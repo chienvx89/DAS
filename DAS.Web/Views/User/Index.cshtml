@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    ViewData["PageHeaderContent"] = "Users";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model IEnumerable<DAS.Application.Models.ViewModels.VMUser>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header p">
+                <h3 class="card-title">Danh sách người dùng</h3>
+            </div>
+            <div class="card-body">
+                <a class="btn btn-primary" style="margin-bottom:0.5%" asp-action="Create">Create New</a>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="width:10px">
+                                #
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Description)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ int stt = 0;}
+                        @foreach (var item in Model)
+                        {
+                            stt++;
+                            <tr>
+                                <td>
+                                    @stt
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    <a class="btn btn-link" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                                    <a class="btn btn-link" asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                                    <input type="button" value="Delete" data-id="@item.ID" class="btn btn-link DeleteUser" />
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/controller/UsersController.js" asp-append-version="true"></script>
+<script type="text/javascript">
+    InitUserConfig();
+</script>

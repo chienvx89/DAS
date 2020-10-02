@@ -1,9 +1,6 @@
 ﻿using DAS.Domain.Interfaces;
 using DAS.Domain.Interfaces.DAS;
 using DAS.Infrastructure.Contexts;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DAS.Infrastructure.Repositories
