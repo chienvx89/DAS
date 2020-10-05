@@ -8,6 +8,7 @@ namespace DAS.Domain.Interfaces.DAS
     public interface IDasRepositoryWrapper
     {
         IUserRepository User { get; }
+        ICategoryRepository Category { get; }
 
         Task SaveAync();
     }

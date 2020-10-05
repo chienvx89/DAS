@@ -4,21 +4,22 @@ using DAS.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DAS.Infrastructure.Repositories
 {
-    public class UserRepository : BaseRepository<User>, IUserRepository
+    public class CategoryRepository : BaseRepository<Category>, ICategoryRepository
     {
-        public UserRepository(DASContext repositoryContext)
+        public CategoryRepository(DASContext repositoryContext)
             : base(repositoryContext)
         {
         }
-
-        public async Task<bool> IsEmailExist(string email)
+        
+        public Task<bool> GetPaging()
         {
-            return await Context.User.AnyAsync(s => s.Email == email);
+            throw new NotImplementedException();
         }
     }
 }

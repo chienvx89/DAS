@@ -25,7 +25,6 @@ namespace DAS.Infrastructure.Contexts
         {
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseLoggerFactory(loggerFactory).UseSqlServer(ConfigUtils.GetConnectionString("DASContext"));
-            //optionsBuilder.UseSqlServer(ConfigUtils.GetConnectionString("DASContext"));
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -35,7 +34,9 @@ namespace DAS.Infrastructure.Contexts
             //builder.Entity<Project>().HasIndex(u => u.Name).IsUnique();
         }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<Category> Category { get; set; }
+        
         //public DbSet<Job> Jobs { get; set; }
         //public DbSet<Project> Projects { get; set; }
     }
