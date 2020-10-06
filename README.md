@@ -5,4 +5,12 @@
 	2. VS2019
 ### InitDB
 	1. Modify connectionstring in appsettings.json (DAS.Web)
-	2. Run Update-database on PacketManagerConsole
+	2. Run "Update-database" on PacketManagerConsole
+### FrontEnd
+	1. Bootstrap v4.3.1 (https://getbootstrap.com/) 
+	2. Jquery 3.3.1
+	3. AdminLTE v3.0.1
+	4. https://select2.org/ (select box)
+	5. http://www.jquery-bootgrid.com/ (Grid)
+	6. Chart ???
+	7. PDF ??
