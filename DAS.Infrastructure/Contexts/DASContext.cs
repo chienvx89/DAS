@@ -21,6 +21,10 @@ namespace DAS.Infrastructure.Contexts
         {
         }
 
+        public DASContext() : base()
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
@@ -36,7 +40,8 @@ namespace DAS.Infrastructure.Contexts
 
         public DbSet<User> User { get; set; }
         public DbSet<Category> Category { get; set; }
-        
+        public DbSet<CategoryType> CategoryType { get; set; }
+
         //public DbSet<Job> Jobs { get; set; }
         //public DbSet<Project> Projects { get; set; }
     }

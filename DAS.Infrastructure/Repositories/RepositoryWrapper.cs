@@ -8,15 +8,20 @@ namespace DAS.Infrastructure.Repositories
     public class RepositoryWrapper : IDasRepositoryWrapper
     {
         #region ctor
-        private DASContext _repoContext;
+
+        private readonly DASContext _repoContext;
+
         public RepositoryWrapper(DASContext repositoryContext)
         {
             _repoContext = repositoryContext;
         }
-        #endregion
+
+        #endregion ctor
 
         #region Properties
+
         private IUserRepository _user;
+
         public IUserRepository User
         {
             get
@@ -30,6 +35,7 @@ namespace DAS.Infrastructure.Repositories
         }
 
         private ICategoryRepository _category;
+
         public ICategoryRepository Category
         {
             get
@@ -41,7 +47,22 @@ namespace DAS.Infrastructure.Repositories
                 return _category;
             }
         }
-        #endregion
+
+        private ICategoryTypeRepository _categoryType;
+
+        public ICategoryTypeRepository CategoryType
+        {
+            get
+            {
+                if (_categoryType == null)
+                {
+                    _categoryType = new CategoryTypeRepository(_repoContext);
+                }
+                return _categoryType;
+            }
+        }
+
+        #endregion Properties
 
         public async Task SaveAync()
         {

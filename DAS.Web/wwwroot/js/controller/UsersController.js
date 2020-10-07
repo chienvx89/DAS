@@ -1,5 +1,4 @@
-﻿
-var UsersConfig = {
+﻿var UsersConfig = {
     GetUsers: function () {
         let someData = "";
         let dataType = "html";
@@ -16,10 +15,9 @@ var UsersConfig = {
                 , 'Bạn không thể phục hồi dữ liệu đã xóa'
                 , 'Xóa'
                 , function () {
-                    debugger
                     let someData = {};
                     let method = "POST";
-                    let url = "/Users/Delete/"+userId;
+                    let url = "/Users/Delete/" + userId;
                     let ssCallBack = function (res) {
                         if (typeof res === "object" && typeof res.type !== undefined) {
                             if (res.type === "Success") {
@@ -33,21 +31,14 @@ var UsersConfig = {
                             else if (res.Type === "Warning")
                                 CommonJs.ShowNotifyMsg(SwalMsgType.warning, res.message);
                         }
-
-
                     };
                     CommonJs.CustAjaxCall(someData, method, url, "json", ssCallBack, "");
-                    
                 });
             return false;
         })
     },
-
-
-
 };
 
 var InitUserConfig = function () {
-        UsersConfig.DeleteUser();
-    
+    UsersConfig.DeleteUser();
 }

@@ -34,6 +34,8 @@ namespace DAS.Web
             services.AddControllersWithViews();
             services.AddScoped<IDasRepositoryWrapper, RepositoryWrapper>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ICategoryServices, CategoryService>();
+            services.AddScoped<ICategoryTypeServices, CategoryTypeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

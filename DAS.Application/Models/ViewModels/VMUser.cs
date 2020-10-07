@@ -6,7 +6,7 @@ namespace DAS.Application.Models.ViewModels
 {
     public class VMUser
     {
-        public long ID { get; set; }
+        public int ID { get; set; }
 
         public string Name { get; set; }
 
@@ -18,12 +18,12 @@ namespace DAS.Application.Models.ViewModels
 
         public int Status { get; set; } = 1;
 
-        public long CreatedBy { get; set; } = 0;
+        public int CreatedBy { get; set; } = 0;
 
         public DateTime CreateDate { get; set; } = DateTime.MinValue;
 
         public DateTime? UpdatedDate { get; set; }
 
-        public long? UpdatedBy { get; set; }
+        public int? UpdatedBy { get; set; }
     }
 }

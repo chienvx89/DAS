@@ -11,7 +11,7 @@ namespace DAS.Domain.Models.DAS
         [Key]
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long ID { get; set; }
+        public int ID { get; set; }
 
         [Required]
         [MaxLength(50)]
@@ -30,13 +30,13 @@ namespace DAS.Domain.Models.DAS
         public int Status { get; set; } = 1;
 
         [Required]
-        public long CreatedBy { get; set; } = 0;
+        public int CreatedBy { get; set; } = 0;
 
         [Required]
         public DateTime CreateDate { get; set; } = DateTime.MinValue;
 
         public DateTime? UpdatedDate { get; set; }
 
-        public long? UpdatedBy { get; set; }
+        public int? UpdatedBy { get; set; }
     }
 }

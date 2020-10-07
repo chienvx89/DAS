@@ -108,6 +108,7 @@ var CommonJs = {
             }
         })
     },
+
     QuickSubmitJS: function () {
         $(".QuickSubmitJS").click(function () {
             let self = $(this);
@@ -190,7 +191,6 @@ var CommonJs = {
         return rs;
     },
 
-
     GetSerialize2: function (form) {
         var rs = {};
         var keys = {};
@@ -219,7 +219,6 @@ var CommonJs = {
                 default:
                     return;
             }
-
         });
 
         for (let i in rs) {
@@ -237,13 +236,15 @@ var CommonJs = {
     ClearFormSimple(form) {
         $(form).find("input, select, textarea,button").each(function () {
             let el = $(this);
-
         });
-    }
-
+    },
+    Select2Init: function () {
+        $('.select2').select2();
+    },
 }
 
 var InitCommonJs = function () {
     CommonJs.ShowNotifyMsg();
     CommonJs.QuickSubmitJS();
+    CommonJs.Select2Init();
 }

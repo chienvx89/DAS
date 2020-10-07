@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    ViewData["PageHeaderContent"] = "Categories";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model IEnumerable<DAS.Application.Models.ViewModels.VMCategory>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header p">
+                <h3 class="card-title">Danh sách danh mục</h3>
+            </div>
+            <div class="card-body">
+                <a class="btn btn-primary" style="margin-bottom:0.5%" asp-action="Create">Create New</a>
+                <table id="index_gird" class="table table-condensed table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                #
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(s => s.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(s => s.Code)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(s => s.Status)
+                            </th>
+                            <th data-column-id="commands" data-formatter="commands" data-sortable="false">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ int stt = 0;}
+                        @foreach (var item in Model)
+                        {
+                            stt++;
+                            <tr>
+                                <td>
+                                    @stt
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Code)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+                                <td>
+                                    <a class="btn btn-link" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                                    <a class="btn btn-link" asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                                    <input type="button" value="Delete" data-id="@item.ID" class="btn btn-link DeleteUser" />
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/controller/CategoryController.js" asp-append-version="true"></script>
+<script type="text/javascript">
+    InitCategory();
+</script>

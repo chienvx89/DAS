@@ -7,5 +7,4 @@
   <ItemGroup>
     <ProjectReference Include="..\DAS.Domain\DAS.Domain.csproj" />
   </ItemGroup>
-
 </Project>

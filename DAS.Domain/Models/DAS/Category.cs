@@ -17,16 +17,22 @@ namespace DAS.Domain.Models.DAS
         [MaxLength(250)]
         public string Name { get; set; }
 
+        [MaxLength(50)]
+        public string Code { get; set; }
+
+        [Required]
+        public int IdCategoryType { get; set; }
+
         public int Status { get; set; } = 1;
 
         [Required]
-        public long CreatedBy { get; set; } = 0;
+        public int CreatedBy { get; set; } = 0;
 
         [Required]
         public DateTime CreateDate { get; set; } = DateTime.MinValue;
 
         public DateTime? UpdatedDate { get; set; }
 
-        public long? UpdatedBy { get; set; }
+        public int? UpdatedBy { get; set; }
     }
 }

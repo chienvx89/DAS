@@ -9,6 +9,7 @@ namespace DAS.Domain.Interfaces.DAS
     {
         IUserRepository User { get; }
         ICategoryRepository Category { get; }
+        ICategoryTypeRepository CategoryType { get; }
 
         Task SaveAync();
     }
