@@ -5,7 +5,7 @@
 	2. VS2019
 ### InitDB
 	1. Modify connectionstring in appsettings.json (DAS.Web)
-	2. Run "Update-database" on PacketManagerConsole
+	2. Run "Update-database" on PacketManagerConsole (Default project: choosen DAS.Infrastructure)
 ### FrontEnd
 	1. Bootstrap v4.3.1 (https://getbootstrap.com/) 
 	2. Jquery 3.3.1
