@@ -24,7 +24,7 @@ namespace DAS.Infrastructure.Repositories
             return await Context.Set<T>().ToListAsync();
         }
 
-        public async Task<T> Get(long id)
+        public async Task<T> Get(object id)
         {
             return await Context.Set<T>().FindAsync(id);
         }

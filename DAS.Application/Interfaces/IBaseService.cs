@@ -11,7 +11,7 @@ namespace DAS.Application.Interfaces
     {
         Task<IEnumerable<TEntity>> Gets();
 
-        Task<TEntity> Get(long id);
+        Task<TEntity> Get(object id);
 
         Task<ServiceResult> Create(TEntity user);
 

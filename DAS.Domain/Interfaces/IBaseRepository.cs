@@ -12,7 +12,7 @@ namespace DAS.Domain.Interfaces
 
         Task<IEnumerable<T>> GetByCondition(Expression<Func<T, bool>> expression);
 
-        Task<T> Get(long id);
+        Task<T> Get(object id);
 
         Task<T> Create(T entity);
 

@@ -34,7 +34,7 @@ namespace DAS.Application.Services
             return new ServiceResultSucess($"{category.Name} is deleted!");
         }
 
-        public async Task<Category> Get(long id)
+        public async Task<Category> Get(object id)
         {
             return await _dasRepo.Category.Get(id);
         }

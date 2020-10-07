@@ -34,7 +34,7 @@ namespace DAS.Application.Services
             return new ServiceResultSucess($"{user.Name} is deleted!");
         }
 
-        public async Task<User> Get(long id)
+        public async Task<User> Get(object id)
         {
             return await _dasRepo.User.Get(id);
         }

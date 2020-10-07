@@ -5,8 +5,9 @@
 	2. VS2019
 	3. Dotnet Core 3.1
 ### InitDB
-	1. Modify connectionstring in appsettings.json (DAS.Web)
+	1. Modify connectionstring in appsettings.json (DAS.Web) (DAS.MockData)
 	2. Run "Update-database" on PacketManagerConsole (Default project: choosen DAS.Infrastructure)
+	3. Run project (DAS.MockData) for create DataTest
 ### FrontEnd
 	1. Bootstrap v4.3.1 (https://getbootstrap.com/) 
 	2. Jquery 3.3.1

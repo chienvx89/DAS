@@ -101,51 +101,45 @@ namespace DAS.Web.Controllers
             return CustJSonResult(rs);
         }
 
-        //// GET: Users/Edit/5
-        //public async Task<IActionResult> Edit(long? id)
-        //{
-        //    if (id == null)
-        //        return NotFound();
-        //    var user = await _userService.Get(id.Value);
-        //    if (user == null)
-        //        return NotFound();
+        // GET: Users/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+                return NotFound();
 
-        //    return View(user);
-        //}
+            var category = await _categoryServices.Get(id.Value);
+            if (category == null)
+                return NotFound();
 
-        //// POST: Users/Edit/5
-        //// To protect from overposting attacks, enable the specific properties you want to bind to, for
-        //// more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Edit([Bind("ID,Name,Email,Description")] VMEditUser vmUser)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        if (vmUser != null
-        //             && !string.IsNullOrEmpty(vmUser.Email)
-        //             && await _userService.IsEmailExist(vmUser.Email))
-        //        {
-        //            ModelState.AddModelError("", "Email đã tồn tại");
-        //        }
-        //        return JSErrorModelState();
-        //    }
+            return View(category);
+        }
 
-        //    var user = await _userService.Get(vmUser.ID);
-        //    if (user == null)
-        //    {
-        //        return JSErrorResult("Không tìm thấy User");
-        //    }
-        //    var now = DateTime.Now;
-        //    user.Name = vmUser.Name;
-        //    user.Description = vmUser.Description;
-        //    user.Email = vmUser.Email;
-        //    user.UpdatedBy = GetCurrUser();
-        //    user.UpdatedDate = now;
-        //    await _userService.Update(user);
+        // POST: Users/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit([Bind("ID,Name,Code")] VMCategory vMCategory)
+        {
+            if (!ModelState.IsValid)
+            {
+                return JSErrorModelState();
+            }
 
-        //    return JSSuccessResult("Cập nhật thành công");
-        //}
+            var category = await _categoryServices.Get(vMCategory.ID);
+            if (category == null)
+            {
+                return JSErrorResult("Không tìm thấy User");
+            }
+            var now = DateTime.Now;
+            category.Name = vMCategory.Name;
+            category.Code = vMCategory.Code;
+            category.UpdatedBy = GetCurrUser();
+            category.UpdatedDate = now;
+            await _categoryServices.Update(category);
+
+            return JSSuccessResult("Cập nhật thành công");
+        }
 
         //// POST: Users/Delete/5
         //[HttpPost]
