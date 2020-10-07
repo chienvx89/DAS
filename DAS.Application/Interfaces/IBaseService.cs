@@ -17,6 +17,6 @@ namespace DAS.Application.Interfaces
 
         Task<ServiceResult> Update(TEntity user);
 
-        Task<ServiceResult> Delete(long id);
+        Task<ServiceResult> Delete(object id);
     }
 }

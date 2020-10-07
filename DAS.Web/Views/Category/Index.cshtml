@@ -37,25 +37,25 @@
                         @foreach (var item in Model)
                         {
                             stt++;
-                            <tr>
-                                <td>
-                                    @stt
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Name)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Code)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Status)
-                                </td>
-                                <td>
-                                    <a class="btn btn-link" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                                    <a class="btn btn-link" asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                                    <input type="button" value="Delete" data-id="@item.ID" class="btn btn-link DeleteUser" />
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>
+                                @stt
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Code)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+                            <td>
+                                <a class="btn btn-link" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                                <a class="btn btn-link" asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                                <input type="button" value="Delete" data-id="@item.ID" class="btn btn-link DeleteCategory" />
+                            </td>
+                        </tr>
                         }
                     </tbody>
                 </table>

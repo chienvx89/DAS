@@ -23,7 +23,7 @@ namespace DAS.Application.Services
             return new ServiceResultSucess("Created Successfully");
         }
 
-        public async Task<ServiceResult> Delete(long id)
+        public async Task<ServiceResult> Delete(object id)
         {
             var categoryType = await _dasRepo.CategoryType.Get(id);
             await _dasRepo.CategoryType.Delete(categoryType);

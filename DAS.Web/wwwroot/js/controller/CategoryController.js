@@ -12,16 +12,16 @@
         }
         CustAjaxCall("", someData, url, dataType, ssCallback);
     },
-    DeleteUser: function () {
-        $(".DeleteUser").click(function () {
+    DeleteCategory: function () {
+        $(".DeleteCategory").click(function () {
             let userId = $(this).attr("data-id");
-            CommonJs.ShowConfirmMsg('Bạn có chắc chắn muốn xóa người dùng này?'
+            CommonJs.ShowConfirmMsg('Bạn có chắc chắn muốn xóa danh mục này?'
                 , 'Bạn không thể phục hồi dữ liệu đã xóa'
                 , 'Xóa'
                 , function () {
                     let someData = {};
                     let method = "POST";
-                    let url = "/Users/Delete/" + userId;
+                    let url = "/Category/Delete/" + userId;
                     let ssCallBack = function (res) {
                         if (typeof res === "object" && typeof res.type !== undefined) {
                             if (res.type === "Success") {
@@ -46,4 +46,5 @@
 var InitCategory = function () {
     //UsersConfig.DeleteUser();
     CategoryConfig.InitIndexGrid();
+    CategoryConfig.DeleteCategory();
 }

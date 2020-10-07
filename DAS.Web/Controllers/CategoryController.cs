@@ -141,12 +141,12 @@ namespace DAS.Web.Controllers
             return JSSuccessResult("Cập nhật thành công");
         }
 
-        //// POST: Users/Delete/5
-        //[HttpPost]
-        //public async Task<IActionResult> Delete(long id)
-        //{
-        //    var rs = await _userService.Delete(id);
-        //    return CustJSonResult(rs);
-        //}
+        // POST: Users/Delete/5
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var rs = await _categoryServices.Delete(id);
+            return CustJSonResult(rs);
+        }
     }
 }
