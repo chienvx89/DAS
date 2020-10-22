@@ -152,13 +152,23 @@ namespace DAS.Infrastructure.Repositories
              });
         }
 
+        public void Delete(IEnumerable<T> entities)
+        {
+            Context.Set<T>().RemoveRange(entities);
+        }
+
+        public async Task DeleteAsync(IEnumerable<T> entities)
+        {
+            await Task.Run(() =>
+            {
+                Delete(entities);
+            });
+        }
+
         public void Delete(Expression<Func<T, bool>> predicate)
         {
             var entities = GetAll().Where(predicate).ToList();
-            foreach (var entity in entities)
-            {
-                Delete(entity);
-            }
+            Context.Set<T>().RemoveRange(entities);
         }
 
         public async Task DeleteAsync(Expression<Func<T, bool>> predicate)

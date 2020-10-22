@@ -67,6 +67,10 @@ namespace DAS.Domain.Interfaces
 
         Task DeleteAsync(T entity);
 
+        void Delete(IEnumerable<T> entity);
+
+        Task DeleteAsync(IEnumerable<T> entity);
+
         void Delete(Expression<Func<T, bool>> predicate);
 
         Task DeleteAsync(Expression<Func<T, bool>> predicate);
