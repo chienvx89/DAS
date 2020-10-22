@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DAS.Infrastructure.Repositories
 {
-    public class CategoryTypeRepository : BaseRepository<CategoryType>, ICategoryTypeRepository
+    public class CategoryTypeRepository : DasBaseRepository<CategoryType>, ICategoryTypeRepository
     {
         public CategoryTypeRepository(DASContext repositoryContext)
             : base(repositoryContext)

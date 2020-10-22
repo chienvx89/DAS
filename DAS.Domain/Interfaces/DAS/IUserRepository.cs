@@ -8,6 +8,6 @@ namespace DAS.Domain.Interfaces
 {
     public interface IUserRepository : IBaseRepository<User>
     {
-        Task<bool> IsEmailExist(string email);
+        //Task<bool> IsEmailExist(string email);
     }
 }

@@ -18,15 +18,15 @@ namespace DAS.Application.Services
 
         public async Task<ServiceResult> Create(CategoryType category)
         {
-            await _dasRepo.CategoryType.Create(category);
+            await _dasRepo.CategoryType.InsertAsync(category);
             await _dasRepo.SaveAync();
             return new ServiceResultSucess("Created Successfully");
         }
 
         public async Task<ServiceResult> Delete(object id)
         {
-            var categoryType = await _dasRepo.CategoryType.Get(id);
-            await _dasRepo.CategoryType.Delete(categoryType);
+            var categoryType = await _dasRepo.CategoryType.GetAsync(id);
+            await _dasRepo.CategoryType.DeleteAsync(categoryType);
             await _dasRepo.SaveAync();
             if (categoryType == null)
                 return new ServiceResultError("User is not Exist!!");
@@ -36,17 +36,17 @@ namespace DAS.Application.Services
 
         public async Task<CategoryType> Get(object id)
         {
-            return await _dasRepo.CategoryType.Get(id);
+            return await _dasRepo.CategoryType.GetAsync(id);
         }
 
         public async Task<IEnumerable<CategoryType>> Gets()
         {
-            return await _dasRepo.CategoryType.Gets();
+            return await _dasRepo.CategoryType.GetAllListAsync();
         }
 
         public async Task<ServiceResult> Update(CategoryType categoryType)
         {
-            await _dasRepo.CategoryType.Update(categoryType);
+            await _dasRepo.CategoryType.UpdateAsync(categoryType);
             await _dasRepo.SaveAync();
             return new ServiceResultSucess("Add category suceess!");
         }

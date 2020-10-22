@@ -32,7 +32,7 @@ namespace DAS.Web
         {
             services.AddDbContext<DASContext>(o => o.UseSqlServer(ConfigUtils.GetConnectionString("DASContext")));
             services.AddControllersWithViews();
-            services.AddScoped<IDasRepositoryWrapper, RepositoryWrapper>();
+            services.AddScoped<IDasRepositoryWrapper, DasRepositoryWrapper>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ICategoryServices, CategoryService>();
             services.AddScoped<ICategoryTypeServices, CategoryTypeService>();

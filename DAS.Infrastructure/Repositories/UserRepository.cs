@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace DAS.Infrastructure.Repositories
 {
-    public class UserRepository : BaseRepository<User>, IUserRepository
+    public class UserRepository : DasBaseRepository<User>, IUserRepository
     {
         public UserRepository(DASContext repositoryContext)
             : base(repositoryContext)
         {
         }
 
-        public async Task<bool> IsEmailExist(string email)
-        {
-            return await Context.User.AnyAsync(s => s.Email == email);
-        }
+        //public async Task<bool> IsEmailExist(string email)
+        //{
+        //    return await DasContext.User.AnyAsync(s => s.Email == email);
+        //}
     }
 }

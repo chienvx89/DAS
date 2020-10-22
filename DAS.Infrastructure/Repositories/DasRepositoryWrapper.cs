@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace DAS.Infrastructure.Repositories
 {
-    public class RepositoryWrapper : IDasRepositoryWrapper
+    public class DasRepositoryWrapper : IDasRepositoryWrapper
     {
         #region ctor
 
         private readonly DASContext _repoContext;
 
-        public RepositoryWrapper(DASContext repositoryContext)
+        public DasRepositoryWrapper(DASContext repositoryContext)
         {
             _repoContext = repositoryContext;
         }

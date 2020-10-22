@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace DAS.Infrastructure.Repositories
 {
-    public class CategoryRepository : BaseRepository<Category>, ICategoryRepository
+    public class CategoryRepository : DasBaseRepository<Category>, ICategoryRepository
     {
         public CategoryRepository(DASContext repositoryContext)
             : base(repositoryContext)
         {
         }
-        
+
         public Task<bool> GetPaging()
         {
             throw new NotImplementedException();

@@ -18,15 +18,15 @@ namespace DAS.Application.Services
 
         public async Task<ServiceResult> Create(User user)
         {
-            await _dasRepo.User.Create(user);
+            await _dasRepo.User.InsertAsync(user);
             await _dasRepo.SaveAync();
             return new ServiceResultSucess("Created Successfully");
         }
 
         public async Task<ServiceResult> Delete(object id)
         {
-            var user = await _dasRepo.User.Get(id);
-            await _dasRepo.User.Delete(user);
+            var user = await _dasRepo.User.GetAsync(id);
+            await _dasRepo.User.DeleteAsync(user);
             await _dasRepo.SaveAync();
             if (user == null)
                 return new ServiceResultError("User is not Exist!!");
@@ -36,22 +36,22 @@ namespace DAS.Application.Services
 
         public async Task<User> Get(object id)
         {
-            return await _dasRepo.User.Get(id);
+            return await _dasRepo.User.GetAsync(id);
         }
 
         public async Task<IEnumerable<User>> Gets()
         {
-            return await _dasRepo.User.Gets();
+            return await _dasRepo.User.GetAllListAsync();
         }
 
         public async Task<bool> IsEmailExist(string email)
         {
-            return await _dasRepo.User.IsEmailExist(email);
+            return await _dasRepo.User.AnyAsync(s => s.Email == email);
         }
 
         public async Task<ServiceResult> Update(User user)
         {
-            await _dasRepo.User.Update(user);
+            await _dasRepo.User.UpdateAsync(user);
             await _dasRepo.SaveAync();
             return new ServiceResultSucess("Add User suceess!");
         }
