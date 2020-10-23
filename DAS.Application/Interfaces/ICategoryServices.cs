@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAS.Application.Interfaces
 {
-    public interface ICategoryServices : IBaseService<Category>
+    public interface ICategoryServices : IBaseMasterService<Category>
     {
-      
     }
 }

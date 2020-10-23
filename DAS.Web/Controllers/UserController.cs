@@ -9,6 +9,7 @@ using DAS.Web.Models;
 using DAS.Application.Interfaces;
 using DAS.Application.Models.ViewModels;
 using DAS.Domain.Models.DAS;
+using AutoMapper;
 
 namespace DAS.Web.Controllers
 {
@@ -17,22 +18,19 @@ namespace DAS.Web.Controllers
         //private readonly ILogger<HomeController> _logger;
         private readonly IUserService _userService;
 
-        public UserController(IUserService userService)
+        private readonly IMapper _mapper;
+
+        public UserController(IUserService userService, IMapper mapper)
         {
             _userService = userService;
+            _mapper = mapper;
         }
 
         // GET: Users
         public async Task<IActionResult> Index()
         {
             var users = await _userService.Gets();
-            var model = users.Select(s => new VMUser
-            {
-                ID = s.ID,
-                Name = s.Name,
-                Email = s.Email,
-                Description = s.Description
-            });
+            var model = _mapper.Map<IEnumerable<VMUser>>(users);
 
             return PartialView(model);
         }

@@ -1,5 +1,7 @@
-﻿using DAS.Application.Interfaces;
+﻿using AutoMapper;
+using DAS.Application.Interfaces;
 using DAS.Application.Models.CustomModels;
+using DAS.Application.Models.ViewModels;
 using DAS.Domain.Interfaces;
 using DAS.Domain.Interfaces.DAS;
 using DAS.Domain.Models.DAS;
@@ -12,8 +14,11 @@ namespace DAS.Application.Services
 {
     public class UserService : BaseService, IUserService
     {
-        public UserService(IDasRepositoryWrapper dasRepository) : base(dasRepository)
+        private readonly IMapper _mapper;
+
+        public UserService(IDasRepositoryWrapper dasRepository, IMapper mapper) : base(dasRepository)
         {
+            _mapper = mapper;
         }
 
         public async Task<ServiceResult> Create(User user)

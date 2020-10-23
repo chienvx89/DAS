@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAS.Application.Interfaces
 {
-    public interface IUserService : IBaseService<User>
+    public interface IUserService : IBaseMasterService<User>
     {
         Task<bool> IsEmailExist(string email);
     }

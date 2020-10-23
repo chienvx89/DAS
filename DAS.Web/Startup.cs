@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DAS.Application.AutoMapper;
 using DAS.Application.Interfaces;
 using DAS.Application.Services;
 using DAS.Domain.Interfaces.DAS;
@@ -32,10 +33,13 @@ namespace DAS.Web
         {
             services.AddDbContext<DASContext>(o => o.UseSqlServer(ConfigUtils.GetConnectionString("DASContext")));
             services.AddControllersWithViews();
+
             services.AddScoped<IDasRepositoryWrapper, DasRepositoryWrapper>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ICategoryServices, CategoryService>();
             services.AddScoped<ICategoryTypeServices, CategoryTypeService>();
+
+            DasAutoMapper.Configure(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

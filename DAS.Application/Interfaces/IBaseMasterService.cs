@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAS.Application.Interfaces
 {
-    public interface IBaseService<TEntity>
+    public interface IBaseMasterService<TEntity>
         where TEntity : class
     {
         Task<IEnumerable<TEntity>> Gets();
