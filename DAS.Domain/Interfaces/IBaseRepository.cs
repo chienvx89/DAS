@@ -22,6 +22,10 @@ namespace DAS.Domain.Interfaces
         IQueryable<T> GetAll();
 
         IEnumerable<T> GetAll(Expression<Func<T, bool>> predicate = null);
+        
+        IQueryable<T> Get(Expression<Func<T, bool>> predicate_orderBy, int pageIndex, int pageSize);
+        
+        IQueryable<T> Get(Expression<Func<T, bool>> predicate, Expression<Func<T, bool>> predicate_orderBy, int pageIndex, int pageSize);
 
         #endregion Getting a list of entities
 

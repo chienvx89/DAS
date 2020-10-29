@@ -3,7 +3,7 @@ using DAS.Domain.Interfaces.DAS;
 using DAS.Infrastructure.Contexts;
 using System.Threading.Tasks;
 
-namespace DAS.Infrastructure.Repositories
+namespace DAS.Infrastructure.Repositories.DAS
 {
     public class DasRepositoryWrapper : IDasRepositoryWrapper
     {

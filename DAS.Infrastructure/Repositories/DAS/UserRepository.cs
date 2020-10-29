@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAS.Infrastructure.Repositories
+namespace DAS.Infrastructure.Repositories.DAS
 {
     public class UserRepository : DasBaseRepository<User>, IUserRepository
     {

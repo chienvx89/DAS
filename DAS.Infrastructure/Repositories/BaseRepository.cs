@@ -1,6 +1,7 @@
 ﻿using DAS.Domain.Interfaces;
 using DAS.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +54,39 @@ namespace DAS.Infrastructure.Repositories
                 return GetAll().Where(predicate).AsEnumerable();
             }
             return GetAll().AsEnumerable();
+        }
+
+        public IQueryable<T> Get(Expression<Func<T, bool>> predicate_orderBy, int pageIndex, int pageSize)
+        {
+            var iQueryResult = GetAll();
+            if(predicate_orderBy != null)
+            {
+                iQueryResult = iQueryResult.OrderBy(predicate_orderBy);
+            }
+
+            return
+                iQueryResult
+                .Skip((pageIndex - 1) * pageSize)
+                .Take(pageSize);
+        }
+
+        public IQueryable<T> Get(Expression<Func<T, bool>> predicate,
+            Expression<Func<T, bool>> predicate_orderBy, int pageIndex, int pageSize)
+        {
+            var iQueryResult = GetAll();
+            if (predicate != null)
+            {
+                iQueryResult = iQueryResult.Where(predicate_orderBy);
+            }
+            if (predicate_orderBy != null)
+            {
+                iQueryResult = iQueryResult.OrderBy(predicate_orderBy);
+            }
+            return
+                iQueryResult
+                .Skip((pageIndex - 1) * pageSize)
+                .Take(pageSize);
+                
         }
 
         #endregion Getting a list of entities

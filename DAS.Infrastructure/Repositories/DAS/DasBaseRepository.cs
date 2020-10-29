@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAS.Infrastructure.Repositories
+namespace DAS.Infrastructure.Repositories.DAS
 {
     public class DasBaseRepository<T> : BaseRepository<T> where T : class
     {

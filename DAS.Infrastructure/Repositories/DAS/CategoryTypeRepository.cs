@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAS.Infrastructure.Repositories
+namespace DAS.Infrastructure.Repositories.DAS
 {
     public class CategoryTypeRepository : DasBaseRepository<CategoryType>, ICategoryTypeRepository
     {
